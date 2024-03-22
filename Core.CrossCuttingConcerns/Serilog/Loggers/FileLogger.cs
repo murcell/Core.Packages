@@ -13,7 +13,7 @@ public class FileLogger:LoggerServiceBase
     {
         _configuration = configuration;
 
-        FileLogConfiguration logConfig = _configuration.GetSection("SerilogLogConfigurations:FileLogConfiguration").Get<FileLogConfiguration>() ?? throw new Exception(SerilogMessages.NullOptionsMessage);
+        FileLogConfiguration logConfig = _configuration.GetSection("SeriLogConfigurations:FileLogConfiguration").Get<FileLogConfiguration>() ?? throw new Exception(SerilogMessages.NullOptionsMessage);
 
         string logFilePath = string.Format(format: "{0}{1}", arg0: Directory.GetCurrentDirectory() + logConfig.FolderPath, arg1: ".txt");
 

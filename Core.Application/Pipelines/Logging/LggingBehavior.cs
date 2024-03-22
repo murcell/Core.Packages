@@ -34,7 +34,7 @@ public class LggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, T
         { 
             MethodName =next.Method.Name,
             Parameters=logParameters,
-            User = _httpContextAccessor.HttpContext.User.Identity?.Name ?? "?"
+            User = _httpContextAccessor.HttpContext?.User.Identity?.Name ?? "?"
         };
 
         _loggerServiceBase.Info(JsonSerializer.Serialize(logDetail));
