@@ -23,12 +23,7 @@ public class LggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, T
         _loggerServiceBase = loggerServiceBase;
     }
 
-    public IHttpContextAccessor Get_httpContextAccessor()
-    {
-        return _httpContextAccessor;
-    }
-
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, IHttpContextAccessor _httpContextAccessor, CancellationToken cancellationToken)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         List<LogParameter> logParameters = new ()
         {
@@ -45,4 +40,6 @@ public class LggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, T
         _loggerServiceBase.Info(JsonSerializer.Serialize(logDetail));
         return await next();
     }
+
+    
 }
