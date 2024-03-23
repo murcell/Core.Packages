@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Core.Persistence.Repositories;
 
-public interface IRespository<TEntity, TEntityId> : IQuery<TEntity> 
+public interface IRepository<TEntity, TEntityId> : IQuery<TEntity> 
     where TEntity : Entity<TEntityId>
 {
    TEntity? Get(

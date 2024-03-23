@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Core.Persistence.Repositories;
 
-public interface IAsyncRespository<TEntity,TEntityId> : IQuery<TEntity> where TEntity : Entity<TEntityId>
+public interface IAsyncRepository<TEntity,TEntityId> : IQuery<TEntity> where TEntity : Entity<TEntityId>
 {
     Task<TEntity?> GetAsync(
        Expression<Func<TEntity, bool>> predicate,

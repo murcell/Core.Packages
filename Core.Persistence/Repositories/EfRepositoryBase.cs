@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace Core.Persistence.Repositories;
 
 public class EfRepositoryBase<TEntity,TEntityId,TContext>:
-    IAsyncRespository<TEntity, TEntityId>,IRespository<TEntity, TEntityId> 
+    IAsyncRepository<TEntity, TEntityId>,IRepository<TEntity, TEntityId> 
     where TEntity : Entity<TEntityId>
     where TContext : DbContext
 { 
